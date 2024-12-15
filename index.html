@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Editor Layout</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Main Layout Container */
+    body {
+      display: grid;
+      grid-template-columns: 65px 1fr 2fr 1fr;
+      grid-template-rows: 51px 1fr 30vh;
+      grid-template-areas: 
+        "menu top-bar top-bar right-panel"
+        "left-sidebar sidebar main right-panel"
+        "timeline timeline timeline timeline";
+      gap: 10px;
+      height: 100vh;
+      background-color: #0F0F0F;
+      color: white;
+    }
+
+    /* Menu Bar */
+    .menu-bar {
+      grid-area: menu;
+      background-color: #1C1C1C;
+      width: 65px;
+      height: 51px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #444;
+      border-radius: 5px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      grid-area: top-bar;
+      background-color: #2A2A2A;
+      height: 51px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #444;
+      border-radius: 5px;
+      margin-right: 10px; /* Prevent stretching to right panel */
+    }
+
+    /* Left Sidebar */
+    .left-sidebar {
+      grid-area: left-sidebar;
+      width: 65px;
+      background-color: #1C1C1C;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.5rem 0;
+      border-radius: 5px;
+    }
+
+    .left-sidebar .icon {
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      grid-area: sidebar;
+      background-color: #1E1E1E;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+      border-radius: 5px;
+    }
+
+    .upload-section {
+      background-color: #2A2A2A;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px dashed gray;
+    }
+
+    .content-section {
+      background-color: #2A2A2A;
+      padding: 0.5rem;
+      border-radius: 5px;
+      flex: 1;
+    }
+
+    /* Main Content Viewer */
+    .main-viewer {
+      grid-area: main;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      position: relative;
+      border-radius: 5px;
+    }
+
+    .video-controls {
+      position: absolute;
+      bottom: 10px;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .control-btn {
+      background-color: #333;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .control-btn span {
+      font-size: 1.2rem;
+    }
+
+    /* Right Panel */
+    .right-panel {
+      grid-area: right-panel;
+      background-color: #1E1E1E;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    .text-section {
+      background-color: #2A2A2A;
+      height: 50%;
+      border-radius: 5px;
+      padding: 0.5rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      grid-area: timeline;
+      background-color: #1A1A1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Bar -->
+  <div class="menu-bar">Menu</div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">Top Bar</div>
+
+  <!-- Left Sidebar -->
+  <div class="left-sidebar">
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="upload-section">Upload File<br><small>Drag and drop your file</small></div>
+    <div class="content-section">Images</div>
+    <div class="content-section">Videos</div>
+    <div class="content-section">Music</div>
+  </div>
+
+  <!-- Main Viewer -->
+  <div class="main-viewer">
+    <img src="https://via.placeholder.com/600x350" alt="Main Content" style="max-width: 100%; height: auto; border-radius: 5px;">
+    <div class="video-controls">
+      <button class="control-btn"><span>&#8634;</span> 15s</button>
+      <button class="control-btn">&#9664;</button>
+      <button class="control-btn">Play</button>
+      <button class="control-btn">&#9654;</button>
+      <button class="control-btn">15s <span>&#8635;</span></button>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="right-panel">
+    <div class="text-section">Details</div>
+    <div class="text-section">Comments</div>
+    <button class="control-btn">Send</button>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline">Timeline</div>
+
+</body>
+</html>
